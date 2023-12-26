@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Recommendation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        form {
+            display: flex;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+        label {
+            flex: 1;
+        }
+        select {
+            flex: 2;
+            padding: 0.5em;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hotel Recommendation</h1>
+    </header>
+    <main>
+        <form action="/recommend" method="post">
+            <label for="hotel_name">Select Hotel:</label>
+            <select id="hotel_name" name="hotel_name" required>
+                {% for hotel in hotel_names %}
+                    <option value="{{ hotel }}">{{ hotel }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </main>
+</body>
+</html>

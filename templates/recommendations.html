@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 1em;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 0.5em;
+            padding: 0.5em;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hotel Recommendation</h1>
+    </header>
+    <main>
+        <h2>Recommended hotels for {{ hotel_name }}</h2>
+        <ul>
+            {% for hotel in recommendations %}
+                <li>
+                    <strong>{{ hotel.HOTELNAME }}</strong><br>
+                    City: {{ hotel.CITY }}<br>
+                    Country: {{ hotel.COUNTRY }}<br>
+                    Property Type: {{ hotel.PROPERTYTYPE }}<br>
+                    Star Rating: {{ hotel.STARRATING }}<br>
+                    Rate: {{ hotel.RATE }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
