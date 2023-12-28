@@ -19,8 +19,7 @@ tfidf_matrix = tfidf_vectorizer.fit_transform(df['features'])
 cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
 
 app = Flask(__name__)
-
-# Paste your recommendation code here
+
 def get_recommendations(hotel_name, num_recommendations=3, cosine_similarities=cosine_similarities, df=df):
     hotel_indices = df[df['HOTELNAME'].str.lower().str.strip() == hotel_name.lower().strip()].index
 
